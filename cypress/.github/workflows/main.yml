@@ -1,0 +1,13 @@
+name: test-cron-cron
+on:
+  schedule:
+    # runs tests every 2 minutes
+    - cron: '*/2 * * * *'
+jobs:
+  nightly:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress scheduled tests 🌃
+        uses: cypress-io/github-action@v4
