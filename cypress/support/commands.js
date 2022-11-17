@@ -28,19 +28,19 @@ Cypress.Commands.add('add_synctoken', () => {
     cy.getCookie('synchronizerToken')
         .should('have.property', 'value')
         .then((cookie) => {
-            cy.task('log', 'cookieValueeee: ' + cookie)
+            // cy.task('log', 'cookieValueeee: ' + cookie)
             // YOU SHOULD CONSUME `cookieValue` here
             // .. go ahead inside this `then` callback    
             cy.get('form').then(function ($forms) {
                 for (let i = 0; i < $forms.length; i++) {
                     // check for a token
-                    cy.task('log', 'formfield: ' + i)
+                    // cy.task('log', 'formfield: ' + i)
 
                     var form = $forms[i];
                     var formInputs = form.getElementsByTagName('input');
                     var formTokenExists = false;
                     for (let i = 0; i < formInputs.length; i++) {
-                        cy.task('log', 'formfield name: ' + formInputs[i].getAttribute('name'))
+                        // cy.task('log', 'formfield name: ' + formInputs[i].getAttribute('name'))
                         if (formInputs[i].getAttribute('name') === 'SynchronizerToken') {
                             formTokenExists = true;
                             cy.task('log', 'formTokenExists: ' + formInputs[i].getAttribute('value'))
@@ -53,13 +53,13 @@ Cypress.Commands.add('add_synctoken', () => {
                         input.setAttribute('value', cookie)
                     }
                     // new token value
-                    cy.task('log', 'rechecking form........ ')
+                    // cy.task('log', 'rechecking form........ ')
 
                     for (let i = 0; i < formInputs.length; i++) {
-                        cy.task('log', 'formfield name: ' + formInputs[i].getAttribute('name'))
+                        // cy.task('log', 'formfield name: ' + formInputs[i].getAttribute('name'))
                         if (formInputs[i].getAttribute('name') === 'SynchronizerToken') {
                             formTokenExists = true;
-                            cy.task('log', 'formTokenExists: ' + formInputs[i].getAttribute('value'))
+                            // cy.task('log', 'formTokenExists: ' + formInputs[i].getAttribute('value'))
                         }
                     }
                 }
