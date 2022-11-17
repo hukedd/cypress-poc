@@ -16,16 +16,21 @@ describe('hafele poc', () => {
     cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
 
     cy.wait(200)
+    // ensure login link visible
     cy.get('#headerLoginLinkAction').should('be.visible')
     cy.get('#headerLoginLinkAction').click({ force: true })
     cy.get('[data-testid="divShopLoginForm_LoginAsJointUser_headerItemLogin"]').click({ force: true })
+    // login details
     cy.get('[data-testid="FlyoutLoginEditUser"]').type('310077')
     cy.get('[data-testid="FlyoutLoginUserName"]').type('grunt')
     cy.get('[data-testid="FlyoutLoginEditLogin"]').type('gruntgrunt')
     cy.get('[data-testid="ajaxAccountLoginFormBtn"]').click({ force: true })
+    // wait for my account to be visible (indicates we've logged in OK)
     cy.get('[data-testid="HeaderLinkMyAccount"]').should('be.visible')
+    // now we can click on cart link
     cy.get('#js-cart').should('be.visible').click()
     // cy.get('#cart-item-value > .hidden-md').should('be.visible').click({ force: true })
+    // wait for cart elements to be available & then enter item details
     cy.get('[data-testid="CartDirectOrderInputArticle"]').should('be.visible')
     cy.get('[data-testid="CartDirectOrderInputArticle"]').type('13439020')
     cy.get('[data-testid="CartDirectOrderInputQuantity"]').type('1')
