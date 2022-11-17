@@ -3,7 +3,7 @@ describe('hafele poc', () => {
   it('passes', () => {
     // first visit site, set some cookies to dismiss the nonsense popups...
     cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
-    cy.wait(20)
+    cy.wait(300)
     cy.setCookie('top_ticker_banner_hide', '1')
     cy.wait(20)
     cy.setCookie('CustomerCountryRedirect', 'GB') // geosniffing 'is this your country?' dialog
