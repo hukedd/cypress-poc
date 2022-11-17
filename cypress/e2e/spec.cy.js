@@ -29,8 +29,9 @@ describe('hafele poc', () => {
     cy.get('[data-testid="CartDirectOrderInputArticle"]').type('13439020')
     cy.get('[data-testid="CartDirectOrderInputQuantity"]').type('1')
     cy.get('[data-testid="CartDirectOrderButtonAdd"]').should('be.visible')
-    cy.wait(100)
+    cy.wait(200)
     cy.get('[data-testid="CartDirectOrderButtonAdd"]').click({ force: true })
+    cy.wait(200)
     cy.get('[data-testid="OrderlineArticleNo_13439020"]').should('be.visible')
     // custom command to add csrf token to all forms on page
     // use this whenever submitting a form in this hafele.co.uk site
