@@ -1,10 +1,10 @@
 name: test-cron-cron
-# on: [push]
-on:
-  schedule:
-    # runs tests every 2 minutes
-    # - cron: '*/15 * * * *'
-    - cron: '0 * * * *' # once an hour
+on: [push]
+# on:
+#   schedule:
+#     # runs tests every 2 minutes
+#     # - cron: '*/15 * * * *'
+#     - cron: '0 * * * *' # once an hour
 jobs:
   daily:
     runs-on: ubuntu-latest
