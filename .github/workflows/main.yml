@@ -6,7 +6,7 @@ on:
     # - cron: '*/15 * * * *'
     - cron: '0 * * * *' # once an hour
 jobs:
-  nightly:
+  daily:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
