@@ -18,9 +18,9 @@ describe('hafele poc', () => {
 
     cy.wait(200)
     // ensure login link visible
-    cy.get('#headerLoginLinkAction').should('be.visible')
-    cy.get('#headerLoginLinkAction').click({ force: true })
-    cy.get('[data-testid="divShopLoginForm_LoginAsJointUser_headerItemLogin"]').click({ force: true })
+    cy.get('#headerLoginLinkAction', { timeout: 10000 }).should('be.visible')
+    cy.get('#headerLoginLinkAction').click()
+    cy.get('[data-testid="divShopLoginForm_LoginAsJointUser_headerItemLogin"]').click()
     // login details
     cy.get('[data-testid="FlyoutLoginEditUser"]').type('310077')
     cy.get('[data-testid="FlyoutLoginUserName"]').type('grunt')
