@@ -12,7 +12,7 @@ describe('hafele poc', () => {
     cy.setCookie('OptanonAlertBoxClosed', new Date(Date.now() - 86400000).toISOString())
     cy.wait(50)
     cy.setCookie('OptanonConsent', 'isIABGlobal=false&datestamp=Thu+Nov+17+2022+09%3A02%3A02+GMT%2B0000+(Greenwich+Mean+Time)&version=6.10.0&hosts=&consentId=208760b0-5e70-4021-a28c-dd5bd1f6ffce&interactionCount=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A1%2CC0004%3A1%2CC0002%3A1&geolocation=GB%3BENG&AwaitingReconsent=false')
-    cy.wait(50)
+    cy.wait(250)
     // now we're ready to start...
     cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
 
