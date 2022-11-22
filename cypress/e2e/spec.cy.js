@@ -3,14 +3,14 @@ describe('hafele poc', () => {
   it('passes', () => {
     // first visit site, set some cookies to dismiss the nonsense popups...
     cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
-    cy.wait(100)
+    cy.wait(50)
     cy.setCookie('top_ticker_banner_hide', '1')
     cy.setCookie('CustomerCountryRedirect', 'GB') // geosniffing 'is this your country?' dialog
-    cy.get('#onetrust-accept-btn-handler').should('be.visible')
-    cy.get('#onetrust-accept-btn-handler').click({ force: true })
-    cy.wait(100)
-    // now we're ready to start...
+    cy.wait(200)
     cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
+    cy.get('#onetrust-accept-btn-handler').should('be.visible')
+    cy.get('#onetrust-accept-btn-handler').click()
+    // now we're ready to start...
     cy.wait(200)
     // ensure login link visible
     cy.get('#headerLoginLinkAction', { timeout: 10000 }).should('be.visible')
