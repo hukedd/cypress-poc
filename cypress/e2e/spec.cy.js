@@ -3,19 +3,14 @@ describe('hafele poc', () => {
   it('passes', () => {
     // first visit site, set some cookies to dismiss the nonsense popups...
     cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
-    cy.wait(300)
+    cy.wait(100)
     cy.setCookie('top_ticker_banner_hide', '1')
-    cy.wait(50)
     cy.setCookie('CustomerCountryRedirect', 'GB') // geosniffing 'is this your country?' dialog
-    // cy.get('#onetrust-accept-btn-handler').click({ force: true })
-    cy.wait(50)
-    cy.setCookie('OptanonAlertBoxClosed', new Date(Date.now() - 86400000).toISOString())
-    cy.wait(50)
-    cy.setCookie('OptanonConsent', 'isIABGlobal=false&datestamp=Thu+Nov+17+2022+09%3A02%3A02+GMT%2B0000+(Greenwich+Mean+Time)&version=6.10.0&hosts=&consentId=208760b0-5e70-4021-a28c-dd5bd1f6ffce&interactionCount=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A1%2CC0004%3A1%2CC0002%3A1&geolocation=GB%3BENG&AwaitingReconsent=false')
-    cy.wait(250)
+    cy.get('#onetrust-accept-btn-handler').should('be.visible')
+    cy.get('#onetrust-accept-btn-handler').click({ force: true })
+    cy.wait(100)
     // now we're ready to start...
     cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
-
     cy.wait(200)
     // ensure login link visible
     cy.get('#headerLoginLinkAction', { timeout: 10000 }).should('be.visible')
