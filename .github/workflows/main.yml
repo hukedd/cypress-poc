@@ -8,16 +8,18 @@ on:
 jobs:
   daily:
     # runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    # runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          node-version: 14
+        # with:
+        #   node-version: 12
       - name: Cypress scheduled tests 🌃
         uses: cypress-io/github-action@v4
-        with:
-          node-version: 14
+        # with:
+        #   node-version: 12
           browser: chrome
           record: true
         env:
