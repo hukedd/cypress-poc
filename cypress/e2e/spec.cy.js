@@ -12,7 +12,7 @@ describe('hafele poc', () => {
     cy.wait(50)
     // cy.get('#onetrust-accept-btn-handler').should('be.visible')
     // cy.get('#onetrust-accept-btn-handler').click()
-    cy.get('#onetrust-pc-btn-handler').should('be.visible')
+    cy.get('#onetrust-pc-btn-handler', { timeout: 20000 }).should('be.visible')
     cy.get('#onetrust-pc-btn-handler').click()
     cy.get('.save-preference-btn-handler').should('be.visible')
     cy.get('.save-preference-btn-handler').click()
