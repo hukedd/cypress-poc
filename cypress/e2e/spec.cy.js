@@ -10,8 +10,13 @@ describe('hafele poc', () => {
     cy.wait(200)
     cy.visit('https://www.hafele.co.uk/en/info/services/32168/')
     cy.wait(50)
-    cy.get('#onetrust-accept-btn-handler').should('be.visible')
-    cy.get('#onetrust-accept-btn-handler').click()
+    // cy.get('#onetrust-accept-btn-handler').should('be.visible')
+    // cy.get('#onetrust-accept-btn-handler').click()
+    cy.get('#onetrust-pc-btn-handler').should('be.visible')
+    cy.get('#onetrust-pc-btn-handler').click()
+    cy.get('.save-preference-btn-handler').should('be.visible')
+    cy.get('.save-preference-btn-handler').click()
+    
     // now we're ready to start...
     cy.wait(200)
     // ensure login link visible
