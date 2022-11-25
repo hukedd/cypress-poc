@@ -37,6 +37,7 @@ describe('hafele poc', () => {
     cy.get('[data-testid="CartDirectOrderInputArticle"]').should('be.visible')
     cy.get('[data-testid="CartDirectOrderInputArticle"]').type('13439020')
     cy.get('[data-testid="CartDirectOrderInputQuantity"]').type('1')
+    cy.add_synctoken()
     cy.get('[data-testid="CartDirectOrderButtonAdd"]', { timeout: 20000 }).should('be.visible')
     cy.wait(200)
     cy.get('[data-testid="CartDirectOrderButtonAdd"]').click()
