@@ -1,31 +1,31 @@
-name: test-cron-cron
-# on: [push]
-on:
-  schedule:
-    # runs tests every 2 minutes
-    # - cron: '*/15 * * * *'
-    - cron: '0 */2 * * *' # once every 1/2 hour
-jobs:
-  daily:
-    # runs-on: ubuntu-latest
-    runs-on: ubuntu-20.04
-    timeout-minutes: 10
-    # runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        # with:
-        #   node-version: 12
-      - name: Cypress scheduled tests 🌃
-        uses: cypress-io/github-action@v4
-        with:
-        #   node-version: 12
-          browser: chrome
-          record: true
-        env:
-          # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # pass GitHub token to allow accurately detecting a build vs a re-run build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # pass the project ID from the secrets through environment variable
-          CYPRESS_PROJECT_ID: ${{ secrets.PROJECT_ID }}
+# name: test-cron-cron
+# # on: [push]
+# on:
+#   schedule:
+#     # runs tests every 2 minutes
+#     # - cron: '*/15 * * * *'
+#     - cron: '0 */2 * * *' # once every 1/2 hour
+# jobs:
+#   daily:
+#     # runs-on: ubuntu-latest
+#     runs-on: ubuntu-20.04
+#     timeout-minutes: 10
+#     # runs-on: windows-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#         # with:
+#         #   node-version: 12
+#       - name: Cypress scheduled tests 🌃
+#         uses: cypress-io/github-action@v4
+#         with:
+#         #   node-version: 12
+#           browser: chrome
+#           record: true
+#         env:
+#           # pass the Dashboard record key as an environment variable
+#           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+#           # pass GitHub token to allow accurately detecting a build vs a re-run build
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           # pass the project ID from the secrets through environment variable
+#           CYPRESS_PROJECT_ID: ${{ secrets.PROJECT_ID }}
