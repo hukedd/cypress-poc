@@ -1,8 +1,8 @@
-describe('hafele poc', () => {
+describe('hafele login add-remove from cart', () => {
 
   it('passes', () => {
     // first visit site, set some cookies to dismiss the nonsense popups...
-    cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/')
+    cy.visit('https://www.hafele.co.uk/en/info/services/contact-us/32254/?hafref=testing123')
     cy.wait(200)
     cy.setCookie('top_ticker_banner_hide', '1')
     cy.wait(50)
@@ -10,8 +10,7 @@ describe('hafele poc', () => {
     cy.wait(200)
     cy.visit('https://www.hafele.co.uk/en/info/services/32168/')
     cy.wait(50)
-    // cy.get('#onetrust-accept-btn-handler').should('be.visible')
-    // cy.get('#onetrust-accept-btn-handler').click()
+
     cy.get('#onetrust-pc-btn-handler', { timeout: 20000 }).should('be.visible')
     cy.get('#onetrust-pc-btn-handler').click()
     cy.get('.save-preference-btn-handler').should('be.visible')
